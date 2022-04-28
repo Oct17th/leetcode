@@ -35,14 +35,12 @@ package cn;//n 皇后问题 研究的是如何将 n 个皇后放置在 n×n 的�
 // Related Topics 数组 回溯 👍 1285 👎 0
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
-    public static void main(String[] args) {
-        List<List<String>> solveNQueens = new Solution().solveNQueens(4);
-        System.out.println(solveNQueens);
-    }
 
     public List<List<String>> solveNQueens(int n) {
         /**
@@ -50,11 +48,11 @@ class Solution {
          2. 递归判断下一个节点是否能放皇后
          3. 如果放的皇后数达到n个，则该组数组为一个解决方案
          */
-        List<ArrayList<QueenPosition>> existSolution = new ArrayList<>();
-        ArrayList<QueenPosition> solution = new ArrayList<>();
-        findSolution(existSolution,solution,0,0,n);
+        List<ArrayList<QueenPosition>> existSolution = new ArrayList<ArrayList<QueenPosition>>();
+        ArrayList<QueenPosition> solution = new ArrayList<QueenPosition>();
+        findSolution(existSolution, solution, 0, 0, n);
 
-        return convertResultList(existSolution,n);
+        return convertResultList(existSolution, n);
     }
 
     public List<List<String>> convertResultList(List<ArrayList<QueenPosition>> existSolution, int n) {
@@ -62,26 +60,31 @@ class Solution {
             return null;
         }
         List<List<String>> result = new ArrayList<List<String>>();
-        for (ArrayList<QueenPosition> solution: existSolution) {
+        for (ArrayList<QueenPosition> solution : existSolution) {
             List<String> list = new ArrayList<String>();
             for (int x = 0; x < n; x++) {
                 String s = "";
                 for (int y = 0; y < n; y++) {
-                    if (isQueen(solution,x,y)) {
-                        s+="Q";
+                    if (isQueen(solution, x, y)) {
+                        s += "Q";
                     } else {
-                        s+=".";
+                        s += ".";
                     }
                 }
                 list.add(s);
             }
             result.add(list);
         }
+        Collections.sort(result, new Comparator<List<String>>() {
+            public int compare(List<String> o1, List<String> o2) {
+                return o2.get(0).compareTo(o1.get(0));
+            }
+        });
         return result;
     }
 
-    public boolean isQueen(ArrayList<QueenPosition> solution,int x,int y) {
-        for (QueenPosition p: solution) {
+    public boolean isQueen(ArrayList<QueenPosition> solution, int x, int y) {
+        for (QueenPosition p : solution) {
             if (p.x == x && p.y == y) {
                 return true;
             }
@@ -89,7 +92,7 @@ class Solution {
         return false;
     }
 
-    public void findSolution(List<ArrayList<QueenPosition>> existSolution, ArrayList<QueenPosition> thisSolution, int x,int y, int n) {
+    public void findSolution(List<ArrayList<QueenPosition>> existSolution, ArrayList<QueenPosition> thisSolution, int x, int y, int n) {
         /**
          递归的两个退出条件：
          1. x或y>=n
@@ -97,34 +100,33 @@ class Solution {
          */
 
         // copy一份thisSolution
-        ArrayList<QueenPosition> solution = new ArrayList<>();
-        for (QueenPosition p: thisSolution) {
+        ArrayList<QueenPosition> solution = new ArrayList<QueenPosition>();
+        for (QueenPosition p : thisSolution) {
             solution.add(p);
-        }
-        if (x>n || y>n) {
-            // 没找解决方案
-            return;
         }
         if (solution.size() == n) {
             existSolution.add(solution);
             // 找到一个解决方案
             return;
         }
-        boolean cantAttack = cantAttack(solution,x,y);
-        x++;
-        y++;
+        int nextX = y == n - 1 ? x + 1 : x;
+        int nextY = y == n - 1 ? 0 : y + 1;
+        if (x == n) {
+            // 已经没有下一个节点了
+            return;
+        }
+        boolean cantAttack = cantAttack(solution, x, y);
+        findSolution(existSolution, solution, nextX, nextY, n);
         if (!cantAttack) {
             // 不能攻击的话，尝试一下在这个位置放皇后
-            solution.add(new QueenPosition(x,y));
-            findSolution(existSolution,solution,x,y,n);
+            solution.add(new QueenPosition(x, y));
+            findSolution(existSolution, solution, nextX, nextY, n);
         }
-        findSolution(existSolution,solution,x,y,n);
     }
 
-
-    public boolean cantAttack(ArrayList<QueenPosition> solution,int x,int y) {
-        for (QueenPosition p: solution) {
-            if (Math.abs(p.x - x) <= 1 || Math.abs(p.y - y) <= 1) {
+    public boolean cantAttack(ArrayList<QueenPosition> solution, int x, int y) {
+        for (QueenPosition p : solution) {
+            if (p.x == x || p.y == y || Math.abs(p.x - x) == Math.abs(p.y - y)) {
                 return true;
             }
         }
