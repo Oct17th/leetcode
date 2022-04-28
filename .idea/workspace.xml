@@ -4,7 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="546522c3-fab8-467e-8950-fbbdb9cfd87c" name="Changes" comment="pref:gitignore" />
+    <list default="true" id="546522c3-fab8-467e-8950-fbbdb9cfd87c" name="Changes" comment="pref:注释">
+      <change afterPath="$PROJECT_DIR$/editor/cn/[1222]可以攻击国王的皇后.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/editor/cn/[剑指 Offer II 024]反转链表.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/editor/cn/[面试题 08.12]八皇后.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/editor/cn/doc/content/[1222]可以攻击国王的皇后.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/editor/cn/doc/content/[剑指 Offer II 024]反转链表.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/editor/cn/doc/content/[面试题 08.12]八皇后.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -34,11 +42,16 @@
     </option>
   </component>
   <component name="ProjectId" id="28Ne98QonvJw8vCk60MuP6UgEk4" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="ASKED_MARK_IGNORED_FILES_AS_EXCLUDED" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -103,7 +116,21 @@
       <option name="project" value="LOCAL" />
       <updated>1651127951083</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="pref:gitignore">
+      <created>1651128071888</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1651128071888</updated>
+    </task>
+    <task id="LOCAL-00005" summary="pref:注释">
+      <created>1651128205972</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1651128205972</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -118,8 +145,10 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="pref:gitignore" />
-    <option name="LAST_COMMIT_MESSAGE" value="pref:gitignore" />
+    <MESSAGE value="pref:注释" />
+    <option name="LAST_COMMIT_MESSAGE" value="pref:注释" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
