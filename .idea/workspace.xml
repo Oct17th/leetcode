@@ -4,14 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="546522c3-fab8-467e-8950-fbbdb9cfd87c" name="Changes" comment="pref:注释">
-      <change afterPath="$PROJECT_DIR$/editor/cn/[1222]可以攻击国王的皇后.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/editor/cn/[剑指 Offer II 024]反转链表.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/editor/cn/[面试题 08.12]八皇后.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/editor/cn/doc/content/[1222]可以攻击国王的皇后.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/editor/cn/doc/content/[剑指 Offer II 024]反转链表.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/editor/cn/doc/content/[面试题 08.12]八皇后.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="546522c3-fab8-467e-8950-fbbdb9cfd87c" name="Changes" comment="feat:补充历史提交的题-笔记">
+      <change afterPath="$PROJECT_DIR$/editor/cn/[52]N皇后 II.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/editor/cn/doc/content/[52]N皇后 II.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -130,7 +125,21 @@
       <option name="project" value="LOCAL" />
       <updated>1651128205972</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="feat:补充历史提交的题">
+      <created>1651129343783</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1651129343783</updated>
+    </task>
+    <task id="LOCAL-00007" summary="feat:补充历史提交的题-笔记">
+      <created>1651129677129</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1651129677129</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -148,7 +157,9 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="pref:gitignore" />
     <MESSAGE value="pref:注释" />
-    <option name="LAST_COMMIT_MESSAGE" value="pref:注释" />
+    <MESSAGE value="feat:补充历史提交的题" />
+    <MESSAGE value="feat:补充历史提交的题-笔记" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat:补充历史提交的题-笔记" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
