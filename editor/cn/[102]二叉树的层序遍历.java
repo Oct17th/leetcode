@@ -36,6 +36,12 @@ package cn;
 
 
 //leetcode submit region begin(Prohibit modification and deletion)
+
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Queue;
+
 /**
  * Definition for a binary tree node.
  * public class TreeNode {
@@ -51,40 +57,69 @@ package cn;
  *     }
  * }
  */
-class Solution {
-    public List<List<Integer>> levelOrder(TreeNode root) {
-        List<List<Integer>> result = new ArrayList<>();
-        if (root == null) {
-            return result;
-        }
-        List<TreeNode> nodeList = new ArrayList();
-        nodeList.add(root);
-        levelOrder(nodeList, result);
-        return result;
-    }
-
-    /**
-     写入本层节点并记录叶子节点
-     */
-    public void levelOrder(List<TreeNode> nodeList, List<List<Integer>> result) {
-        if (nodeList == null || nodeList.size() == 0) {
-            return;
-        }
-        // 本层的值
-        List<Integer> nodeValueList = new ArrayList(nodeList.size());
-        List<TreeNode> childNodeList = new ArrayList();
-        for (TreeNode node : nodeList) {
-            nodeValueList.add(node.val);
-            if (node.left != null) {
-                childNodeList.add(node.left);
-            }
-            if (node.right != null) {
-                childNodeList.add(node.right);
-            }
-        }
-        result.add(nodeValueList);
-        levelOrder(childNodeList, result);
-        return;
-    }
-}
+//class Solution {
+//    public List<List<Integer>> levelOrder(TreeNode root) {
+//        List<List<Integer>> result = new ArrayList<>();
+//        if (root == null) {
+//            return result;
+//        }
+//        return dfs(root);
+//        //执行耗时:0 ms,击败了100.00% 的Java用户
+//        //内存消耗:41.2 MB,击败了80.78% 的Java用户
+//        //return bfs(root);
+//        //执行耗时:1 ms,击败了61.99% 的Java用户
+//        //内存消耗:41.6 MB,击败了29.21% 的Java用户
+//    }
+//    /**
+//     * 深度优先遍历
+//     *
+//     * @param root
+//     */
+//    public List<List<Integer>> dfs(TreeNode root) {
+//        List<List<Integer>> result = new ArrayList<>();
+//        return dfs(root, 1, result);
+//    }
+//
+//    public List<List<Integer>> dfs(TreeNode root, int level, List<List<Integer>> result) {
+//        if (root == null) {
+//            return result;
+//        }
+//        if (level > result.size()) {
+//            result.add(new ArrayList<>());
+//        }
+//        List<Integer> valueList = result.get(level - 1);
+//        valueList.add(root.val);
+//        dfs(root.left, level + 1, result);
+//        dfs(root.right, level + 1, result);
+//        return result;
+//    }
+//
+//    /**
+//     * 广度优先遍历
+//     *
+//     * @param root
+//     */
+//    public List<List<Integer>> bfs(TreeNode root) {
+//        List<List<Integer>> result = new ArrayList<>();
+//        Queue<TreeNode> queue = new LinkedList<>();
+//        queue.offer(root);
+//        while (!queue.isEmpty()) {
+//            int size = queue.size();
+//            // 本层节点值
+//            List<Integer> valueList = new ArrayList<>(size);
+//            for (int i = 0; i < size; i++) {
+//                TreeNode node = queue.poll();
+//                valueList.add(node.val);
+//                if (node.left != null) {
+//                    queue.offer(node.left);
+//                }
+//                if (node.right != null) {
+//                    queue.offer(node.right);
+//                }
+//            }
+//            result.add(valueList);
+//        }
+//        return result;
+//    }
+//}
 //leetcode submit region end(Prohibit modification and deletion)
