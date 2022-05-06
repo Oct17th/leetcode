@@ -37,6 +37,7 @@
 //leetcode submit region begin(Prohibit modification and deletion)
 
 import java.util.ArrayList;
+import java.util.Deque;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
@@ -75,38 +76,27 @@ class Solution {
         List<List<Integer>> result = new ArrayList<>();
         Queue<TreeNode> queue = new LinkedList<>();
         queue.offer(root);
-        int level = 1;// 单数左到右遍历，双数右到左遍历
         while (!queue.isEmpty()) {
             int size = queue.size();
-            List<Integer> valueList = new ArrayList<>(size);
-            // 本层的节点按压入队列的顺序读取值，下一层的节点，逆序重新写入队列
-            Stack<TreeNode> nodeStack = new Stack<TreeNode>();
+            boolean leftToRight = result.size() % 2 == 0; //上层是否为双数，单数左到右遍历，双数右到左遍历
+            // 双端队列，若单数层，则使用栈的功能，添加到队头，先进后出
+            Deque<Integer> valueList = new LinkedList<>();
             for (int i = 0; i < size; i++) {
                 TreeNode node = queue.poll();
-                valueList.add(node.val);
-                nodeStack.push(node);
-            }
-            while (!nodeStack.isEmpty()) {
-                TreeNode node = nodeStack.pop();
-                if (level % 2 == 0) {
-                    // 本层为双数，下一层为单数，应左到右遍历
-                    if (node.left != null) {
-                        queue.offer(node.left);
-                    }
-                    if (node.right != null) {
-                        queue.offer(node.right);
-                    }
+                if (leftToRight) {
+                    valueList.add(node.val);
                 } else {
-                    if (node.right != null) {
-                        queue.offer(node.right);
-                    }
-                    if (node.left != null) {
-                        queue.offer(node.left);
-                    }
+                    valueList.push(node.val);
+                }
+                // 添加下层节点
+                if (node.left != null) {
+                    queue.offer(node.left);
+                }
+                if (node.right != null) {
+                    queue.offer(node.right);
                 }
             }
-            level++;
-            result.add(valueList);
+            result.add(new ArrayList<>(valueList));
         }
         return result;
     }
