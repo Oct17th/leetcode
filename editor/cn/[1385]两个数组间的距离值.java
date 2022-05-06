@@ -59,25 +59,25 @@ package cn;
 
 
 //leetcode submit region begin(Prohibit modification and deletion)
-class Solution {
-    public int findTheDistanceValue(int[] arr1, int[] arr2, int d) {
-        int distance = 0;
-        if (arr1 == null || arr1.length == 0 || arr2 == null || arr2.length == 0 || d < 0) {
-            return distance;
-        }
-        for (int i = 0; i < arr1.length; i++) {
-            boolean flag = false;
-            for (int j = 0; j < arr2.length; j++) {
-                if (Math.abs(arr1[i] - arr2[j]) <= d) {
-                    flag = true;
-                    break;
-                }
-            }
-            if (!flag) {
-                distance ++;
-            }
-        }
-        return distance;
-    }
-}
+//class Solution {
+//    public int findTheDistanceValue(int[] arr1, int[] arr2, int d) {
+//        int distance = 0;
+//        if (arr1 == null || arr1.length == 0 || arr2 == null || arr2.length == 0 || d < 0) {
+//            return distance;
+//        }
+//        for (int i = 0; i < arr1.length; i++) {
+//            boolean flag = false;
+//            for (int j = 0; j < arr2.length; j++) {
+//                if (Math.abs(arr1[i] - arr2[j]) <= d) {
+//                    flag = true;
+//                    break;
+//                }
+//            }
+//            if (!flag) {
+//                distance ++;
+//            }
+//        }
+//        return distance;
+//    }
+//}
 //leetcode submit region end(Prohibit modification and deletion)
