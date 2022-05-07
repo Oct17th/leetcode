@@ -58,49 +58,49 @@ import java.util.Stack;
  *     }
  * }
  */
-class Solution {
-    public List<List<Integer>> zigzagLevelOrder(TreeNode root) {
-        if (root == null) {
-            return new ArrayList<>();
-        }
-        return bfs(root);
-    }
-
-    /**
-     * 广度优先
-     *
-     * @param root
-     * @return
-     */
-    private List<List<Integer>> bfs(TreeNode root) {
-        List<List<Integer>> result = new ArrayList<>();
-        Queue<TreeNode> queue = new LinkedList<>();
-        queue.offer(root);
-        while (!queue.isEmpty()) {
-            int size = queue.size();
-            boolean leftToRight = result.size() % 2 == 0; //上层是否为双数，单数左到右遍历，双数右到左遍历
-            // 双端队列，若单数层，则使用栈的功能，添加到队头，先进后出
-            Deque<Integer> valueList = new LinkedList<>();
-            for (int i = 0; i < size; i++) {
-                TreeNode node = queue.poll();
-                if (leftToRight) {
-                    valueList.add(node.val);
-                } else {
-                    valueList.push(node.val);
-                }
-                // 添加下层节点
-                if (node.left != null) {
-                    queue.offer(node.left);
-                }
-                if (node.right != null) {
-                    queue.offer(node.right);
-                }
-            }
-            result.add(new ArrayList<>(valueList));
-        }
-        return result;
-    }
-}
+//class Solution {
+//    public List<List<Integer>> zigzagLevelOrder(TreeNode root) {
+//        if (root == null) {
+//            return new ArrayList<>();
+//        }
+//        return bfs(root);
+//    }
+//
+//    /**
+//     * 广度优先
+//     *
+//     * @param root
+//     * @return
+//     */
+//    private List<List<Integer>> bfs(TreeNode root) {
+//        List<List<Integer>> result = new ArrayList<>();
+//        Queue<TreeNode> queue = new LinkedList<>();
+//        queue.offer(root);
+//        while (!queue.isEmpty()) {
+//            int size = queue.size();
+//            boolean leftToRight = result.size() % 2 == 0; //上层是否为双数，单数左到右遍历，双数右到左遍历
+//            // 双端队列，若单数层，则使用栈的功能，添加到队头，先进后出
+//            Deque<Integer> valueList = new LinkedList<>();
+//            for (int i = 0; i < size; i++) {
+//                TreeNode node = queue.poll();
+//                if (leftToRight) {
+//                    valueList.add(node.val);
+//                } else {
+//                    valueList.push(node.val);
+//                }
+//                // 添加下层节点
+//                if (node.left != null) {
+//                    queue.offer(node.left);
+//                }
+//                if (node.right != null) {
+//                    queue.offer(node.right);
+//                }
+//            }
+//            result.add(new ArrayList<>(valueList));
+//        }
+//        return result;
+//    }
+//}
 //leetcode submit region end(Prohibit modification and deletion)
 
 
